@@ -1,8 +1,6 @@
 resource random_id name_suffix {
   byte_length = 3
-  keepers = {
-    data = jsonencode(var.data)
-  }
+  keepers = local.keepers
 }
 
 resource kubernetes_secret secret {

@@ -15,3 +15,10 @@ variable data {
   type = map(string)
   default = {}
 }
+
+locals {
+  keepers = {
+    for key, value in var.data:
+      key => sha256(value)
+  }
+}
